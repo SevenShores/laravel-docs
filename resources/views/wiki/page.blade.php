@@ -2,7 +2,7 @@
 
 @unless (empty($title))
     @section('title')
-        <title>{{ $title }} &ndash; Dev Wiki</title>
+        <title>{{ $title }} &ndash; Laravel Docs</title>
     @stop
 @endunless
 

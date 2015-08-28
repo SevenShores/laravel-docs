@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @section('title')
-        <title>Kwiki</title>
+        <title>Laravel Docs - Extended</title>
     @show
 
     @yield('meta')
@@ -20,7 +20,7 @@
 <body>
 
 <section class="header container">
-    <h1 style="font-size:3.8rem;">Kwiki</h1>
+    <h1 style="font-size:3.8rem;">Laravel Docs Extended</h1>
 </section>
 
 @yield('content')
