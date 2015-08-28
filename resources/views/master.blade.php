@@ -12,6 +12,7 @@
     @yield('meta')
 
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/agate.min.css">
     <link href="/css/app.css" rel="stylesheet">
 
     @yield('styles')
@@ -25,10 +26,10 @@
 
 @yield('content')
 
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
-<script src="/js/app.js'"></script>
+<script src="/js/app.js"></script>
 
 @yield('scripts')
 

@@ -527,12 +527,12 @@ Whenever a new model is saved for the first time, the `creating` and `created` e
 For example, lets look at a couple of ways to register a [listener](/docs/{{version}}/events#defining-listeners) for these model events in a [service provider](/docs/{{version}}/providers). In the event service provider we can either register the listener in the listeners array, or we can specify it directly on the model in the boot method:
 
     <?php
-    
+
     namespace App\Providers;
-    
+
     use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
     use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-    
+
     class EventServiceProvider extends ServiceProvider
     {
         /**
@@ -545,7 +545,7 @@ For example, lets look at a couple of ways to register a [listener](/docs/{{vers
                 'App\Listeners\UserWasCreated',
             ],
         ];
-        
+
         /**
          * Register any other events for your application.
          *
@@ -555,7 +555,7 @@ For example, lets look at a couple of ways to register a [listener](/docs/{{vers
         public function boot(DispatcherContract $events)
         {
             parent::boot($events);
-            
+
             \App\User::created(\App\Listeners\UserWasCreated::class);
         }
     }
@@ -563,45 +563,46 @@ For example, lets look at a couple of ways to register a [listener](/docs/{{vers
 
 Or let's define an Eloquent event listener right in the model. Within our event listener, we will call the `isValid` method on the given model, and return `false` if the model is not valid. Returning `false` from an Eloquent event listener will cancel the `save` / `update` operation:
 
+```php
     <?php
-    
+
     namespace App;
-    
+
     use Illuminate\Auth\Authenticatable;
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Auth\Passwords\CanResetPassword;
     use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
     use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-    
+
     class User extends Model implements AuthenticatableContract, CanResetPasswordContract
     {
         use Authenticatable, CanResetPassword;
-        
+
         /**
          * The database table used by the model.
          *
          * @var string
          */
         protected $table = 'users';
-        
+
         /**
          * The attributes that are mass assignable.
          *
          * @var array
          */
         protected $fillable = ['name', 'email', 'password'];
-        
+
         /**
          * The attributes excluded from the model's JSON form.
          *
          * @var array
          */
         protected $hidden = ['password', 'remember_token'];
-        
+
         public static function boot()
         {
             parent::boot();
-            
+
             static::creating(function ($user) {
                 if ( ! $user->isValid()) {
                     return false;
@@ -609,3 +610,5 @@ Or let's define an Eloquent event listener right in the model. Within our event 
             });
         }
     }
+    ```
+

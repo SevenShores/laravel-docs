@@ -1,5 +1,72 @@
 /* Custom Styles */
 
+img {
+    max-width: 100%;
+}
+
 .wiki.container {
     margin-top: 30px;
+}
+
+.footer {
+    padding: 40px;
+}
+
+.copyright {
+    text-align: center;
+}
+
+/* override bootstrap code style */
+pre, pre code {
+    color: inherit;
+    padding: inherit;
+    border: inherit;
+    background-color: inherit;
+    background-color: inherit;
+}
+
+pre code {
+    font-size: 1.5rem;
+}
+
+code, kbd, pre, samp {
+    font-family: 'Source Code Pro';
+}
+
+.hljs {
+    padding: 1em !important;
+}
+
+.post table>tbody>tr>td,
+.post table>tbody>tr>th,
+.post table>tfoot>tr>td,
+.post table>tfoot>tr>th,
+.post table>thead>tr>td,
+.post table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.846;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.post table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dddddd;
+}
+.post table>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+.post table > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+.post table > caption + thead > tr:first-child > th,
+.post table > colgroup + thead > tr:first-child > th,
+.post table > thead:first-child > tr:first-child > th,
+.post table > caption + thead > tr:first-child > td,
+.post table > colgroup + thead > tr:first-child > td,
+.post table > thead:first-child > tr:first-child > td {
+    border-top: 0;
 }
