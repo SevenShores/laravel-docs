@@ -21,7 +21,7 @@
 <body>
 
 <section class="header container">
-    <h1 style="font-size:3.8rem;">Laravel Docs Extended</h1>
+    <h1 style="font-size:3.8rem;">Laravel Docs - Extended Edition</h1>
 </section>
 
 @yield('content')
